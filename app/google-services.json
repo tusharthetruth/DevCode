@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "730053170373",
+    "firebase_url": "https://devcode-fedee.firebaseio.com",
+    "project_id": "devcode-fedee",
+    "storage_bucket": "devcode-fedee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:730053170373:android:1e946c38d644782c",
+        "android_client_info": {
+          "package_name": "in.devcode"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "730053170373-6d3buigmaid44i66cnl86lu3fsgq48hb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.devcode",
+            "certificate_hash": "f798ff198e1df29b5beeaa560c1b0422d98887fe"
+          }
+        },
+        {
+          "client_id": "730053170373-6r744n1oc9vpqfvpgh9sa1c5nretfua9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKKiO0r13sIwfwdHLFO3JIY2ahC8sRnic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "730053170373-6r744n1oc9vpqfvpgh9sa1c5nretfua9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
