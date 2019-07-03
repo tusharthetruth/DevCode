@@ -3,6 +3,7 @@ package in.devcode.main;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,9 +15,11 @@ import java.util.ArrayList;
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainHolder> {
 
     ArrayList<MainModel> list;
+    ICommonAdapterListener listener;
 
-    public MainAdapter(ArrayList<MainModel> list) {
+    public MainAdapter(ArrayList<MainModel> list, ICommonAdapterListener listener) {
         this.list = list;
+        this.listener = listener;
     }
 
     @NotNull
@@ -27,10 +30,16 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MainHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final MainHolder holder, int position) {
         MainModel model = list.get(position);
         holder.id.setText(model.id + ".");
         holder.name.setText(model.name);
+        holder.container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onClick(holder.name);
+            }
+        });
     }
 
     @Override
@@ -40,11 +49,13 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainHolder> {
 
     static class MainHolder extends RecyclerView.ViewHolder {
         TextView id, name;
+        LinearLayout container;
 
         MainHolder(View viewBinding) {
             super(viewBinding);
             id = viewBinding.findViewById(R.id.sno);
             name = viewBinding.findViewById(R.id.name);
+            container = viewBinding.findViewById(R.id.container);
         }
     }
 }
