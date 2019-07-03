@@ -1,4 +1,4 @@
-package `in`.boilerplatecode.utils
+package `in`.devcode.utils
 
 import android.app.Activity
 import android.app.Application
@@ -7,7 +7,7 @@ import java.lang.ref.WeakReference
 
 
 class AppLifeCycle : Application.ActivityLifecycleCallbacks {
-    public var mListener: WeakReference<AppLifeCycleListener> = WeakReference(null)
+    lateinit var mListener: WeakReference<AppLifeCycleListener>
     private var mState = AppState.NONE
     private var mStartedActivityCount = 0
 

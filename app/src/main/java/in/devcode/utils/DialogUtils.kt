@@ -1,4 +1,4 @@
-package `in`.boilerplatecode
+package `in`.devcode
 
 import android.app.AlertDialog
 import android.content.Context

@@ -1,4 +1,4 @@
-package `in`.boilerplatecode.utils
+package `in`.devcode.utils
 
 import android.app.Activity
 import android.content.Context

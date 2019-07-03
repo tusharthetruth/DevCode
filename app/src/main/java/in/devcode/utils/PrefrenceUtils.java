@@ -1,4 +1,4 @@
-package in.boilerplatecode.utils;
+package in.devcode.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

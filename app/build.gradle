@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "in.boilerplatecode"
+        applicationId 'in.devcode'
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1

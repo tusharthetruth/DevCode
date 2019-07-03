@@ -1,4 +1,4 @@
-package `in`.boilerplatecode
+package `in`.devcode
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4

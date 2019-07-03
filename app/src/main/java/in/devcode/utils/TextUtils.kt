@@ -1,4 +1,4 @@
-package `in`.boilerplatecode
+package `in`.devcode
 
 import android.text.TextUtils
 import android.widget.EditText

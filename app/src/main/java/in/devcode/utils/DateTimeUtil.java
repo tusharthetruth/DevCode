@@ -1,4 +1,4 @@
-package in.boilerplatecode.utils;
+package in.devcode.utils;
 
 import java.text.DateFormat;
 import java.text.ParseException;

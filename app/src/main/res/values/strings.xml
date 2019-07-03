@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BoilerplateCode</string>
+    <string name="app_name">DevCode</string>
     <string name="err_generic_permission">One or more required permission are missing. Please grant
         access to all permissions from App Settings.
     </string>
