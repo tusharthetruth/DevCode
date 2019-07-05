@@ -1,11 +1,13 @@
 package in.devcode.downloadfiles;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import android.net.Uri;
+import android.os.Environment;
+import android.util.Log;
+
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLConnection;
 
 public class HttpDownloadEntity {
     private static final int BUFFER_SIZE = 4096;
@@ -19,7 +21,7 @@ public class HttpDownloadEntity {
      */
     public static String downloadFile(String fileURL, String saveDir)
             throws IOException {
-        String filePath="";
+        String filePath = "";
         URL url = new URL(fileURL);
         HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
         int responseCode = httpConn.getResponseCode();
@@ -52,7 +54,9 @@ public class HttpDownloadEntity {
             // opens input stream from the HTTP connection
             InputStream inputStream = httpConn.getInputStream();
             String saveFilePath = saveDir + File.separator + fileName;
-
+            File f = new File(saveFilePath);
+            if (!f.exists())
+                f.createNewFile();
             // opens an output stream to save into file
             FileOutputStream outputStream = new FileOutputStream(saveFilePath);
 
@@ -66,11 +70,50 @@ public class HttpDownloadEntity {
             inputStream.close();
 
             System.out.println("File downloaded");
-            filePath=saveFilePath;
+            filePath = saveFilePath;
         } else {
             System.out.println("No file to download. Server replied HTTP code: " + responseCode);
         }
         httpConn.disconnect();
         return filePath;
+    }
+
+    public void downloadWithownName(String urlName) {
+        int count;
+        try {
+            File myDirectory = new File(Environment.getExternalStorageDirectory(), "AppName");
+            if (!myDirectory.exists())
+                myDirectory.mkdir();
+            File nomedia = new File(myDirectory.getPath(), ".nomedia");
+            if (!nomedia.exists())
+                nomedia.mkdir();
+            File f = new File(nomedia.getPath(), "imageName.jpg");
+            if (!f.exists())
+                f.createNewFile();
+            System.out.println("Downloading");
+            URL url = new URL(urlName);
+            URLConnection conection = url.openConnection();
+            conection.connect();
+            int lenghtOfFile = conection.getContentLength();
+            InputStream input = new BufferedInputStream(url.openStream(), 8192);
+            // Output stream to write file
+            OutputStream output = new FileOutputStream(f);
+            byte data[] = new byte[1024];
+            long total = 0;
+            while ((count = input.read(data)) != -1) {
+                total += count;
+                // writing data to file
+                output.write(data, 0, count);
+            }
+            // flushing output
+            output.flush();
+            // closing streams
+            output.close();
+            input.close();
+            String filePath = Uri.fromFile(f).toString();
+
+        } catch (Exception e) {
+            Log.e("Error: ", e.getMessage());
+        }
     }
 }
