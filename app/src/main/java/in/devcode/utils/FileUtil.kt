@@ -19,5 +19,14 @@ class FileUtil {
                 out.createNewFile();
             return out.absolutePath
         }
+
+        fun getAppDir(): String {
+            var path: String = Environment.getExternalStorageDirectory().absolutePath + File.pathSeparator + APP_NAME;
+            var dir = File(path)
+            if (!dir.exists()) {
+                dir.mkdir()
+            }
+            return dir.absolutePath
+        }
     }
 }
